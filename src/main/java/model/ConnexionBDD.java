@@ -13,6 +13,10 @@ import java.util.Properties;
 public class ConnexionBDD {
 	private Connection bdd;
 	
+	public Connection getBdd() {
+		return bdd;
+	}
+
 	public ConnexionBDD() {
 		try {
 			Properties prop = new Properties();
