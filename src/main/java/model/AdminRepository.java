@@ -19,9 +19,9 @@ public class AdminRepository {
 	public boolean checkConnection(String login, String password){
 		try {
 			PreparedStatement statement = this.getBdd().prepareStatement("SELECT 1 from admin where login = ? and mdp = ?");
-			ResultSet rs = statement.executeQuery();
 			statement.setString(1, login);
-			statement.setString(2, password);			
+			statement.setString(2, password);	
+			ResultSet rs = statement.executeQuery();
 	    	
 	        if(!rs.next())
 	        	return false;	        
