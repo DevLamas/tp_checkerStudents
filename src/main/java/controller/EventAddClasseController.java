@@ -27,7 +27,7 @@ public class EventAddClasseController {
 
 	
 	@FXML
-	private void retourAccueil() throws IOException {
+	private void retourAllClasses() throws IOException {
 		Stage stage;
 		stage = (Stage) buttonAnnuler.getScene().getWindow();
 		Parent root;
