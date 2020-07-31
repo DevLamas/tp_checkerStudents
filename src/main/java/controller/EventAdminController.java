@@ -23,8 +23,14 @@ public class EventAdminController {
 	private Text textTitle;
 	
 	@FXML
-	private void seeClasses(){
-		
+	private void seeClasses() throws IOException{
+		Stage stage;
+		stage = (Stage) buttonStudent.getScene().getWindow();
+		Parent root;
+		root = FXMLLoader.load(getClass().getResource("../view/ClasseList.fxml"));
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 	
 	
