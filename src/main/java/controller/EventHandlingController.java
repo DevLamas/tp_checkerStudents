@@ -33,7 +33,7 @@ public class EventHandlingController {
 	
 	
 	@FXML
-	private void checkUserInfo() throws IOException {
+	private void checkUserInfo() throws IOException{
 		String user = textFieldUser.getText();
 		String password = textFieldPassword.getText();
 		Stage stage;

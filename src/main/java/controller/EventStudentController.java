@@ -1,5 +1,7 @@
 package controller;
 
+
+
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import model.Eleve;
@@ -29,9 +31,10 @@ public class EventStudentController {
 	public void initData(Eleve eleve) {
 		this.textNom.setText(eleve.getNom());
 		this.textPrenom.setText(eleve.getPrenom());
+		
 		//this.textAge.setText();
 		this.textDateN.setText(eleve.getDateN());
-		this.textClasse.setText(eleve.getClasse().getDesignation()+' '+eleve.getClasse().getAnnee());
+		this.textClasse.setText(eleve.getClasse().getDesignation()+' '+eleve.getClasse().getAnnee().substring(0,4));
 	}
 }
 
