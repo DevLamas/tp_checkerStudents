@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class EventHandlingController {
@@ -24,6 +25,9 @@ public class EventHandlingController {
 	private TextField textFieldPassword;
 	
 	@FXML
+	private Text textError;
+	
+	@FXML
 	private void initialize() {
 	}
 	
@@ -33,15 +37,19 @@ public class EventHandlingController {
 		String user = textFieldUser.getText();
 		String password = textFieldPassword.getText();
 		Stage stage;
-		
+
 		ConnexionBDD conn = new ConnexionBDD();
 		Connection bdd = conn.connexion();
+		
 		AdminRepository adminR = new AdminRepository(bdd);
 		Admin admin = adminR.checkConnection(user, password);
 		if(admin != null) {
 			stage = (Stage) buttonConnect.getScene().getWindow();
-			Parent root;
-			root = FXMLLoader.load(getClass().getResource("../view/AdminOverview.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/Admin.fxml"));
+			
+			Parent root = loader.load();
+			EventAdminController controller = loader.<EventAdminController>getController();			
+			controller.initData(admin);
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
@@ -61,11 +69,11 @@ public class EventHandlingController {
 				stage.show();				
 			}
 			else {
-				
+				textError.setText("Erreur lors de la connexion");
 			}
 				
 		}
-		
+	
 	}
 	
 }
