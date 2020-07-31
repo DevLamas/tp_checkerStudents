@@ -25,12 +25,12 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Corgniard">
+                        <Text fx:id="textNom" strokeType="OUTSIDE" strokeWidth="0.0" text="Corgniard">
                            <font>
                               <Font size="70.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Antoine">
+                        <Text fx:id="textPrenom" strokeType="OUTSIDE" strokeWidth="0.0" text="Antoine">
                            <font>
                               <Font size="70.0" />
                            </font>
@@ -39,19 +39,19 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="21 ans">
+                        <Text fx:id="textAge" strokeType="OUTSIDE" strokeWidth="0.0" text="21 ans">
                            <font>
                               <Font size="53.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="19/01/1999">
+                        <Text fx:id="textDateN" strokeType="OUTSIDE" strokeWidth="0.0" text="19/01/1999">
                            <font>
                               <Font size="53.0" />
                            </font>
                         </Text>
                      </children>
                   </HBox>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RIL 2019-2021">
+                  <Text fx:id="textClasse" strokeType="OUTSIDE" strokeWidth="0.0" text="RIL 2019-2021">
                      <font>
                         <Font size="35.0" />
                      </font>

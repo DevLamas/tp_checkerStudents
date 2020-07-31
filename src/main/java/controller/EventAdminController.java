@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Admin;
 
 public class EventAdminController {	
 
@@ -43,6 +44,11 @@ public class EventAdminController {
 		stage.setScene(scene);
 		stage.show();
 				
+	}
+	
+	
+	public void initData(Admin admin) {
+		
 	}
 
 }

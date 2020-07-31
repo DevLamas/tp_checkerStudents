@@ -21,7 +21,7 @@ public class ConnexionBDD {
 		try {
 			Properties prop = new Properties();
 			try {
-				InputStream input = new FileInputStream("src/main/ressources/config.properties");
+				InputStream input = new FileInputStream("src/main/resources/config.properties");
 				prop.load(input);
 				
 				String url = prop.getProperty("db.url");
