@@ -25,6 +25,10 @@ public class Classe {
 		return designation;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}

@@ -5,7 +5,8 @@ public class Admin {
 	private String login;
 	private String password;
 	
-	public Admin (int id, String login, String password) {
+	
+	public Admin(int id, String login, String password) {
 		this.id = id;
 		this.login = login;
 		this.password = password;
@@ -17,6 +18,10 @@ public class Admin {
 
 	public String getLogin() {
 		return login;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public void setLogin(String login) {
