@@ -20,26 +20,39 @@ public class AdminRepository {
 		return bdd;
 	}
 
-	public boolean checkConnection(String login, String password){
+	public Admin checkConnection(String login, String password){
+		Admin admin = null;
 		try {
 			PreparedStatement statement = this.getBdd().prepareStatement("SELECT 1 from admin where login = ? and mdp = ?");
 			statement.setString(1, login);
 			statement.setString(2, password);	
 			ResultSet rs = statement.executeQuery();
-	    	
-	        if(!rs.next())
-	        	return false;	        
-	        
+	        if(rs.next())
+	        	admin = this.getAdminByLogin(login);
+	     } catch (SQLException ex) {
+        	System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+		return admin;
+	}
+	
+	
+	public Admin getAdminByLogin(String login) {
+		Admin admin = null;
+		try {
+			PreparedStatement statement = this.getBdd().prepareStatement("SELECT * from admin where login = ?");
+			statement.setString(1,login);
+			ResultSet rs = statement.executeQuery();
+			if(rs.next())
+				 admin = new Admin(rs.getInt("id"),rs.getString("login"),rs.getString("mdp"));
     	} catch (SQLException ex) {
         	System.out.println("SQLException: " + ex.getMessage());
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
         }
-		return true;
+		return admin;		
 	}
-	
-	
-	
 	
 	public ResultSet findAll() {
 		ConnexionBDD connectBdd = new ConnexionBDD();

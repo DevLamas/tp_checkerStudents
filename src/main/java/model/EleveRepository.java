@@ -9,21 +9,21 @@ import java.util.ArrayList;
 public class EleveRepository {
 	private Connection bdd;
 	
-	public boolean checkConnection(String login, String password){
+	public Eleve checkConnection(String login, String password){
+		Eleve eleve = null;
 		try {
 			PreparedStatement statement = this.getBdd().prepareStatement("SELECT 1 from eleve where login = ? and mdp = ?");
 			statement.setString(1, login);
 			statement.setString(2, password);			
 			ResultSet rs = statement.executeQuery();
-	        if(!rs.next())
-	        	return false;	        
-	        
+	        if(rs.next())
+	        	eleve = this.getEleveByLogin(login);
     	} catch (SQLException ex) {
         	System.out.println("SQLException: " + ex.getMessage());
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
         }
-		return true;
+		return eleve;
 	}
 	
 	public ArrayList<Eleve> getEleveByClasse(Classe classe) {
