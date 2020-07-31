@@ -43,12 +43,9 @@ public class ClasseRepository {
 		try {
 			Statement state = this.getBdd().createStatement();
 			result = state.executeQuery(requete);
-			while(result.next()){			
+			while(result.next()){	
 				classes.add(buildObjet(result));
-			}
-			
-			return classes;
-			
+			}			
 		}catch(Exception e) {
 			System.out.println("");
 			e.printStackTrace();
@@ -154,16 +151,14 @@ public class ClasseRepository {
 	
 	protected Classe buildObjet(ResultSet result) throws SQLException {
 		Classe classe = new Classe(0, null, null, null);
-		while (result.next()) {
-			int id = result.getInt(1);
-			classe.setId(id);
-			String annee = result.getString(2);
-			classe.setAnnee(annee);
-			String designation = result.getString(3);
-			classe.setDesignation(designation);
-			int ecole = result.getInt(4);
-			classe.setEcole(null);
-		}
+		int id = result.getInt(1);
+		classe.setId(id);
+		String annee = result.getString(2);
+		classe.setAnnee(annee);
+		String designation = result.getString(3);
+		classe.setDesignation(designation);
+		int ecole = result.getInt(4);
+		classe.setEcole(null);
 		return classe;
 	}
 

@@ -1,6 +1,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +14,8 @@ import javafx.scene.control.TextField;
 import model.Classe;
 import model.ClasseRepository;
 import model.ConnexionBDD;
+import model.Eleve;
+import model.EleveRepository;
 
 public class EventAddStudentController {
 	
@@ -44,22 +47,22 @@ public class EventAddStudentController {
 		Connection bdd = conn.connexion();
 		ClasseRepository classeR = new ClasseRepository(bdd);
 		ArrayList<Classe> classes = classeR.getClasses();
+		
 		for(Classe classe : classes) {
-			selectClasse.getItems().add(classe.getId()+" - "+classe.getDesignation()+" "+classe.getAnnee());
+			selectClasse.getItems().add(classe.getId()+" "+classe.getDesignation()+" "+classe.getAnnee().substring(0,4));
 		}
 		
 	}
 	
 	@FXML
 	public void createStudent() {
-		String nom = textNom.getText();
-		String prenom = textPrenom.getText();
-		//String dateN = textDateN.getValue();
-		String classe = selectClasse.getValue();
-		String login = textLogin.getText();
-		String mdp = textMotDePasse.getText();
-		//System.out.println(nom + prenom + dateN + classe +  login + mdp );
+		ConnexionBDD conn = new ConnexionBDD();
+		Connection bdd = conn.connexion();
+		EleveRepository eleveR = new EleveRepository(bdd);
+		Classe classe = new Classe(Integer.parseInt(selectClasse.getValue().split(" ")[0]),"","",null);		
 		
+		Eleve eleve = new Eleve(0,textNom.getText(),textPrenom.getText(),textDateN.getValue().toString(),classe,textLogin.getText(),textMotDePasse.getText());
+		eleveR.addEleve(eleve);
 		
 	}
 	
