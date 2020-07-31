@@ -6,25 +6,33 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 	
 import java.sql.Statement;
+import java.util.ArrayList;
 
 
 public class ClasseRepository {
 	private Connection bdd;
 	
-	public ResultSet findAll() {
+	
+	
+	public ArrayList<Classe> getClassesByEcole(Ecole ecole) {
+		ArrayList<Classe> classes = new ArrayList();
 		ResultSet result = null;
 		
-		String requete = "Select * from classe;";
+		String requete = "Select * from classe c where c.ecole = " + ecole.getId() +";";
 		try {
 			Statement state = this.getBdd().createStatement();
 			result = state.executeQuery(requete);
-			return result;
+			while(result.next()){			
+				classes.add(buildObjet(result));
+			}
+			
+			return classes;
 			
 		}catch(Exception e) {
 			System.out.println("");
 			e.printStackTrace();
-            return result;
 		}
+		return classes;
 	}
 				
 	
