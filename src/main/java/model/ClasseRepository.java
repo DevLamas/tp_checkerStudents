@@ -37,6 +37,8 @@ public class ClasseRepository {
 		try {
 			Statement state = con.createStatement();
 			result = state.executeQuery(requete);
+			
+			
 			return result;
 			
 		}catch(Exception e) {
@@ -125,6 +127,7 @@ public class ClasseRepository {
 			String designation = result.getString(3);
 			classe.setDesignation(designation);
 			int ecole = result.getInt(4);
+			classe.setEcole(null);
 		}
 		return classe;
 	}

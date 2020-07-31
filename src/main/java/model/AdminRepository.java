@@ -59,7 +59,7 @@ public class AdminRepository {
 		}
 	}
 	
-	public ResultSet find(int id) {
+	public Admin find(int id) {
 		ConnexionBDD connectBdd = new ConnexionBDD();
 		Connection con = connectBdd.connexion();
 		ResultSet result = null;
@@ -68,12 +68,14 @@ public class AdminRepository {
 		try {
 			Statement state = con.createStatement();
 			result = state.executeQuery(requete);
-			return result;
+			Admin admin = buildObjet(result);
+			return admin;
 			
 		}catch(Exception e) {
 			System.out.println("");
 			e.printStackTrace();
-            return result;
+			Admin admin = new Admin(0, null, null);
+            return admin;
 		}
 	}
 	
