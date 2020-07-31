@@ -130,7 +130,6 @@ public class AdminRepository {
 		
 		try {
             PreparedStatement preparedStmt = con.prepareStatement(requete);
-            // execute the preparedstatement
             preparedStmt.execute();
 
         } catch (Exception e ){
