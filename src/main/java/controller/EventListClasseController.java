@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -22,6 +23,10 @@ public class EventListClasseController {
 
 	@FXML
 	private Button retourAcceuil;
+	
+
+	@FXML
+	private ListView<String> listClasse;
 	
 	
 	@FXML
@@ -58,6 +63,18 @@ public class EventListClasseController {
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	
+	@FXML
+	public void initialize() {
+		ConnexionBDD conn = new ConnexionBDD();
+		Connection bdd = conn.connexion();
+		
+		
+		ClasseRepository classeR = new ClasseRepository(bdd);
+		
+		listClasse.getItems().setAll(classeR.getClassesLibelle());
 	}
 
 }
