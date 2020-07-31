@@ -37,27 +37,7 @@ public class AdminRepository {
         }
 		return true;
 	}
-	
-	
-	
-	
-	public ResultSet findAll() {
-		ConnexionBDD connectBdd = new ConnexionBDD();
-		Connection con = connectBdd.connexion();
-		ResultSet result = null;
-		
-		String requete = "Select * from admin;";
-		try {
-			Statement state = con.createStatement();
-			result = state.executeQuery(requete);
-			return result;
-			
-		}catch(Exception e) {
-			System.out.println("");
-			e.printStackTrace();
-            return result;
-		}
-	}
+
 	
 	public Admin find(int id) {
 		ConnexionBDD connectBdd = new ConnexionBDD();
@@ -117,7 +97,6 @@ public class AdminRepository {
 		
 		try {
             PreparedStatement preparedStmt = con.prepareStatement(requete);
-            // execute the preparedstatement
             preparedStmt.execute();
 
         } catch (Exception e ){

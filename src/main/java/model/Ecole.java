@@ -36,6 +36,10 @@ public class Ecole {
 	public String toString() {
 		return "Ecole [id=" + id + ", nom=" + nom + ", admin=" + admin + "]";
 	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 
 }
