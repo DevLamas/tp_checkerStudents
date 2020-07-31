@@ -4,8 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class AdminRepository {
+	public AdminRepository() {
+		
+	}
 	private Connection bdd;
 	
 	public AdminRepository(Connection bdd) {
@@ -32,6 +36,105 @@ public class AdminRepository {
             System.out.println("VendorError: " + ex.getErrorCode());
         }
 		return true;
+	}
+	
+	
+	
+	
+	public ResultSet findAll() {
+		ConnexionBDD connectBdd = new ConnexionBDD();
+		Connection con = connectBdd.connexion();
+		ResultSet result = null;
+		
+		String requete = "Select * from admin;";
+		try {
+			Statement state = con.createStatement();
+			result = state.executeQuery(requete);
+			return result;
+			
+		}catch(Exception e) {
+			System.out.println("");
+			e.printStackTrace();
+            return result;
+		}
+	}
+	
+	public ResultSet find(int id) {
+		ConnexionBDD connectBdd = new ConnexionBDD();
+		Connection con = connectBdd.connexion();
+		ResultSet result = null;
+		
+		String requete = "Select * from admin where id = "+ id +";";
+		try {
+			Statement state = con.createStatement();
+			result = state.executeQuery(requete);
+			return result;
+			
+		}catch(Exception e) {
+			System.out.println("");
+			e.printStackTrace();
+            return result;
+		}
+	}
+	
+	
+	public static void insertData(Admin a) {
+		ConnexionBDD connectBdd = new ConnexionBDD();
+		Connection con = connectBdd.connexion();
+		String requete = "insert into admin (login, password) values ('"+ a.getLogin() +"','" + a.getPassword() +"')";
+		
+		try{
+            PreparedStatement preparedStmt = con.prepareStatement(requete);
+            preparedStmt.execute();
+        } catch (Exception e ){
+            System.out.println("erreur insert : ");
+            e.printStackTrace();
+        }
+		
+	}
+	
+	public static void updateData(Admin a) {
+		ConnexionBDD connectBdd = new ConnexionBDD();
+		Connection con = connectBdd.connexion();
+		String requete = "update admin set login = '"+ a.getLogin() +"', password = '" + a.getPassword() +"' where id = " + a.getId() + ")";
+		
+		try{
+            PreparedStatement preparedStmt = con.prepareStatement(requete);
+            preparedStmt.execute();
+        } catch (Exception e ){
+            System.out.println("erreur update : ");
+            e.printStackTrace();
+        }
+		
+	}
+	
+	public static void deleteData(Admin a) {
+		ConnexionBDD connectBdd = new ConnexionBDD();
+		Connection con = connectBdd.connexion();
+		String requete = "delete from admin where id = " + a.getId() +";";
+		
+		try {
+            PreparedStatement preparedStmt = con.prepareStatement(requete);
+            // execute the preparedstatement
+            preparedStmt.execute();
+
+        } catch (Exception e ){
+            System.out.println("Une erreure delete Admin : ");
+            e.printStackTrace();
+        }
+	}
+	
+	protected Admin buildObjet(ResultSet result) throws SQLException {
+		Admin admin = new Admin(0, null, null);
+		while (result.next()) {
+			int id = result.getInt(1);
+			admin.setId(id);
+			String login = result.getString(2);
+			admin.setLogin(login);
+			String password = result.getString(3);
+			admin.setPassword(password);
+		}
+		return admin;
 	}
 	
 	
