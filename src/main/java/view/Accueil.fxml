@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EventHandlingController">
    <children>
       <GridPane alignment="CENTER" layoutX="346.0" layoutY="155.0" prefHeight="254.0" prefWidth="573.0">
         <columnConstraints>
@@ -26,16 +25,16 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <TextField prefHeight="47.0" prefWidth="286.0" promptText="Nom utilisateur" GridPane.columnIndex="1" />
+            <TextField fx:id="textFieldUser" prefHeight="47.0" prefWidth="286.0" promptText="Nom utilisateur" GridPane.columnIndex="1" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Entrez votre mot de passe :" GridPane.rowIndex="1">
                <font>
                   <Font size="19.0" />
                </font>
             </Text>
-            <PasswordField prefHeight="45.0" prefWidth="286.0" promptText="Mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PasswordField fx:id="textFieldPassword" prefHeight="45.0" prefWidth="286.0" promptText="Mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Button layoutX="549.0" layoutY="466.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="168.0" style="-fx-background-color: #008000;" text="Se connecter" textFill="WHITE">
+      <Button fx:id="buttonConnect" layoutX="549.0" layoutY="466.0" mnemonicParsing="false" onAction="#checkUserInfo" prefHeight="50.0" prefWidth="168.0" style="-fx-background-color: #008000;" text="Se connecter" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>

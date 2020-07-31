@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox layoutX="7.0" layoutY="1.0" prefHeight="739.0" prefWidth="1280.0">
@@ -17,7 +16,7 @@
                <children>
                   <ImageView fitHeight="690.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/images/1200px-User_icon-cp.svg.png" />
+                        <Image url="@../../resources/images/profile.png" />
                      </image>
                   </ImageView>
                </children>
