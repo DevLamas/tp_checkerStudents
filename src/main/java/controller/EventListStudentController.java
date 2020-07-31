@@ -1,5 +1,11 @@
 package controller;
 
-public class EventListStudentController {
+import javafx.fxml.FXML;
 
+public class EventListStudentController {
+	
+	@FXML
+	public void addStudent() {
+		
+	}
 }
