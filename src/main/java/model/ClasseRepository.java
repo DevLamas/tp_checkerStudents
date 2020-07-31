@@ -57,6 +57,11 @@ public class ClasseRepository {
 	}
 				
 	
+	public ClasseRepository(Connection bdd) {
+		super();
+		this.bdd = bdd;
+	}
+
 	public Classe getClasseById(int id) {
 		Classe classe = null;
 		try {
