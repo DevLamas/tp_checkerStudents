@@ -42,8 +42,7 @@ public class EventAdminController {
 		root = FXMLLoader.load(getClass().getResource("../view/StudentList.fxml"));
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
-		stage.show();
-				
+		stage.show();				
 	}
 	
 	
