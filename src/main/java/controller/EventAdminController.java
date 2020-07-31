@@ -32,17 +32,10 @@ public class EventAdminController {
 		
 	}
 	
-	public void changeText(String text) {
-		System.out.println(text);
-		textTitle.setText(text);
-	}
-	
 	
 	
 	@FXML
 	private void seeStudent() throws IOException{
-		changeText("test");
-		System.out.println("testttttt");
 		Stage stage;
 		stage = (Stage) buttonStudent.getScene().getWindow();
 		Parent root;
@@ -50,7 +43,7 @@ public class EventAdminController {
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
-		
+				
 	}
 	
 	
