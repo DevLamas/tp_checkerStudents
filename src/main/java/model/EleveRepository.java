@@ -60,6 +60,22 @@ public class EleveRepository {
 		return eleves;		
 	}
 	
+	public ArrayList<String> getElevesLibelle() {
+		ArrayList<String> eleves = new ArrayList();
+		try {
+			PreparedStatement statement = this.getBdd().prepareStatement("SELECT eleve.id,eleve.nom, eleve.prenom, eleve.dateN, classe.id as classeid, classe.annee as classeannee, classe.designation as classedesignation, classe.ecole as classeecole, eleve.login, eleve.mdp,ecole.id as ecoleid, ecole.nom as ecolenom  from eleve join classe on classe.id = eleve.classe join ecole on ecole.id = classe.ecole"); 
+			ResultSet rs = statement.executeQuery();
+			while(rs.next()){
+				eleves.add(rs.getString("prenom")+" "+rs.getString("nom")+" - "+rs.getString("classedesignation")+" "+rs.getString("classeannee").substring(0,4)+" ("+rs.getString("ecolenom")+" )");
+			}
+    	} catch (SQLException ex) {
+        	System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+		return eleves;		
+	}
+	
 	public Eleve getEleveByLogin(String login) {
 		Eleve eleve = null;
 		try {

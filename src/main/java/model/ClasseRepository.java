@@ -34,6 +34,27 @@ public class ClasseRepository {
 		}
 		return classes;
 	}
+	
+	public ArrayList<Classe> getClasses() {
+		ArrayList<Classe> classes = new ArrayList();
+		ResultSet result = null;
+		
+		String requete = "Select * from classe;";
+		try {
+			Statement state = this.getBdd().createStatement();
+			result = state.executeQuery(requete);
+			while(result.next()){			
+				classes.add(buildObjet(result));
+			}
+			
+			return classes;
+			
+		}catch(Exception e) {
+			System.out.println("");
+			e.printStackTrace();
+		}
+		return classes;
+	}
 				
 	
 	public Classe getClasseById(int id) {
