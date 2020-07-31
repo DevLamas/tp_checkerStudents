@@ -29,7 +29,7 @@ public class EventListClasseController {
 		Stage stage;
 		stage = (Stage) buttonAddClasse.getScene().getWindow();
 		Parent root;
-		root = FXMLLoader.load(getClass().getResource("../view/ClasseAdd.fxml"));
+		root = FXMLLoader.load(getClass().getResource("../view/CreateClasse.fxml"));
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();

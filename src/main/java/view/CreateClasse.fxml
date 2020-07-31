@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.EventListClasseController">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EventAddClasseController">
    <children>
       <AnchorPane prefHeight="592.0" prefWidth="992.0">
          <children>
@@ -23,7 +22,6 @@
               </rowConstraints>
                <children>
                   <TextField fx:id="fieldDesignation" prefHeight="34.0" prefWidth="335.0" GridPane.columnIndex="1" />
-                  <TextField fx:id="fieldAnnees" prefHeight="36.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom classe :" wrappingWidth="295.13671875">
                      <font>
                         <Font size="22.0" />
@@ -34,6 +32,7 @@
                         <Font size="22.0" />
                      </font>
                   </Text>
+                  <DatePicker fx:id="fieldAnnees" prefHeight="37.0" prefWidth="335.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <Button fx:id="buttonSave" layoutX="480.0" layoutY="372.0" mnemonicParsing="false" onAction="#saveClasse" prefHeight="71.0" prefWidth="146.0" style="-fx-background-color: #008000;" text="Enregistrer" textFill="WHITE">
@@ -41,7 +40,7 @@
                   <Font size="22.0" />
                </font>
             </Button>
-            <Button fx:id="buttonAnnuler" layoutX="669.0" layoutY="372.0" mnemonicParsing="false" onAction="#retourIndexClasses" prefHeight="71.0" prefWidth="146.0" style="-fx-background-color: #e42222;" text="Annuler" textFill="WHITE">
+            <Button fx:id="buttonAnnuler" layoutX="669.0" layoutY="372.0" mnemonicParsing="false" onAction="#retourAllClasses" prefHeight="71.0" prefWidth="146.0" style="-fx-background-color: #e42222;" text="Annuler" textFill="WHITE">
                <font>
                   <Font size="23.0" />
                </font>
