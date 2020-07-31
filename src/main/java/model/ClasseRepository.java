@@ -149,6 +149,24 @@ public class ClasseRepository {
 		return bdd;
 	}
 	
+	
+	
+	public ArrayList<String> getClassesLibelle() {
+		ArrayList<String> classes = new ArrayList();
+		try {
+			PreparedStatement statement = this.getBdd().prepareStatement("SELECT * from classe"); 
+			ResultSet rs = statement.executeQuery();
+			while(rs.next()){
+				classes.add(rs.getString("designation")+" "+rs.getString("annee"));
+			}
+    	} catch (SQLException ex) {
+        	System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+		return classes;		
+	}
+	
 	protected Classe buildObjet(ResultSet result) throws SQLException {
 		Classe classe = new Classe(0, null, null, null);
 		int id = result.getInt(1);

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EventListClasseController">
+   <children>
+      <AnchorPane layoutY="-1.0" prefHeight="868.0" prefWidth="1259.0">
+         <children>
+            <Button fx:id="retourAcceuil" layoutX="981.0" layoutY="394.0" mnemonicParsing="false" onAction="#retourAccueil" prefHeight="68.0" prefWidth="225.0" style="-fx-background-color: #0dc4fb;" text="Retour Accueil" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="buttonAddClasse" layoutX="981.0" layoutY="210.0" mnemonicParsing="false" onAction="#addClasse" prefHeight="68.0" prefWidth="225.0" style="-fx-background-color: #008000;" text="Nouvelle classe" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="buttonDeleteClasse" layoutX="981.0" layoutY="301.0" mnemonicParsing="false" onAction="#deleteClasse" prefHeight="68.0" prefWidth="225.0" style="-fx-background-color: #ee550f;" text="Supprimer classe" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <ListView fx:id="listClasse" layoutX="66.0" layoutY="50.0" prefHeight="755.0" prefWidth="828.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
