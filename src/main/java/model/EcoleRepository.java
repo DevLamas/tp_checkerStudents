@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class EcoleRepository {
 	
@@ -26,6 +27,24 @@ public class EcoleRepository {
 			Ecole ecole = new Ecole(0, null, null);
             return ecole;
 		}
+	}
+	
+	public ArrayList<Ecole> findAll() {
+		ArrayList<Ecole> ecoles = new ArrayList();
+		ConnexionBDD connectBdd = new ConnexionBDD();
+		Connection con = connectBdd.connexion();
+		try {
+			PreparedStatement statement = con.prepareStatement("SELECT * from ecole;");
+			ResultSet rs = statement.executeQuery();
+			while(rs.next()){			
+				ecoles.add(buildObjet(rs));
+			}
+    	} catch (SQLException ex) {
+        	System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+		return ecoles;		
 	}
 	
 	
