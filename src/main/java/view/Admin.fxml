@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EventAdminController">
+   <children>
+      <Text fx:id="textTitle" layoutX="443.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compte Administrateur" wrappingWidth="393.826171875">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Text>
+      <Button fx:id="buttonClasses" layoutX="340.0" layoutY="345.0" mnemonicParsing="false" onAction="#seeClasses" prefHeight="105.0" prefWidth="207.0" style="-fx-background-color: #008000;" text="Voir classe" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonStudent" layoutX="733.0" layoutY="345.0" mnemonicParsing="false" onAction="#seeStudent" prefHeight="105.0" prefWidth="207.0" style="-fx-background-color: #008000;" text="Voir élèves" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
