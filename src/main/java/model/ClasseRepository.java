@@ -4,15 +4,36 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+	
+import java.sql.Statement;
+
 
 public class ClasseRepository {
 	private Connection bdd;
-
+	
+	public ResultSet findAll() {
+		ResultSet result = null;
+		
+		String requete = "Select * from classe;";
+		try {
+			Statement state = this.getBdd().createStatement();
+			result = state.executeQuery(requete);
+			return result;
+			
+		}catch(Exception e) {
+			System.out.println("");
+			e.printStackTrace();
+            return result;
+		}
+	}
+				
+	
 	public Classe getClasseById(int id) {
 		Classe classe = null;
 		try {
 			PreparedStatement statement = this.getBdd().prepareStatement("SELECT id, annee, designation, ecole.id as ecoleid, ecole.nom as ecolenom from classe join ecole on classe.ecole = ecole.id where classe.id = ?");
 			statement.setInt(1, id);
+			
 			ResultSet rs = statement.executeQuery();
 			if(rs.next()){
 				 classe = new Classe(rs.getInt("id"), rs.getString("nom"), rs.getString("designation"), new Ecole(rs.getInt("ecoleid"),rs.getString("ecolenom"),null));
@@ -24,7 +45,6 @@ public class ClasseRepository {
         }
 		return classe;		
 	}
-	
 	
 	public int getNewId() {
 		int newid = -1;
@@ -97,4 +117,20 @@ public class ClasseRepository {
 	public Connection getBdd() {
 		return bdd;
 	}
+	
+	protected Classe buildObjet(ResultSet result) throws SQLException {
+		Classe classe = new Classe(0, null, null, null);
+		while (result.next()) {
+			int id = result.getInt(1);
+			classe.setId(id);
+			String annee = result.getString(2);
+			classe.setAnnee(annee);
+			String designation = result.getString(3);
+			classe.setDesignation(designation);
+			int ecole = result.getInt(4);
+			classe.setEcole(null);
+		}
+		return classe;
+	}
+
 }

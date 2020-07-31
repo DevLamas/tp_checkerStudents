@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 public class MainApp extends Application {
@@ -42,6 +43,7 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
+    
 
     /**
      * Shows the person overview inside the root layout.
@@ -50,7 +52,7 @@ public class MainApp extends Application {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("../view/EleveOverview.fxml"));
+            loader.setLocation(MainApp.class.getResource("../view/Accueil.fxml"));
             System.out.println("test");
             AnchorPane personOverview = (AnchorPane) loader.load();
             
